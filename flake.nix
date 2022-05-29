@@ -15,7 +15,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      "nihil" = nixpkgs.lib.nixosSystem {
+      nihil = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nihil-nixos/configuration.nix
@@ -29,6 +29,14 @@
           }
         ];
       };
+    };
+
+    homeConfigurations.chris = home-manager.lib.homeManagerConfiguration {
+      system = "x86_64-linux";
+      configuration = import ./home.nix;
+      username = "chris";
+      homeDirectory = "/home/chris";
+      stateVersion = "22.05";
     };
   };
 }
