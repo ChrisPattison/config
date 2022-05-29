@@ -15,10 +15,10 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      nihil = nixpkgs.lib.nixosSystem {
+      tempeh = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nihil-nixos/configuration.nix
+          ./tempeh-nixos/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
