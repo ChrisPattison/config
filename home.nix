@@ -26,11 +26,14 @@
       ]));
   in [
     pkgs.htop
-    pkgs.firefox
     pkgs.libfido2
     texlive
     python-with-pkgs
   ];
+
+  programs.firefox = {
+    enable = true;
+  };
 
   programs.zsh = {
     enable = true;
