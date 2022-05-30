@@ -26,7 +26,6 @@
       ]));
   in [
     pkgs.htop
-    pkgs.git
     pkgs.firefox
     pkgs.libfido2
     texlive
@@ -42,6 +41,11 @@
     enable = true;
     userName = "Chris Pattison";
     userEmail = "chpattison@gmail.com";
+  };
+
+  programs.zathura = {
+    enable = true;
+    extraConfig = builtins.readFile (./. + "/rc/emacs-key-for-zathura.txt");
   };
 
   programs.emacs = {
