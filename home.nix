@@ -5,6 +5,8 @@
     #nur-no-pkgs.repos.rycee.hmMOdules.emacs-init
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   home.username = "chris";
   home.homeDirectory = "/home/chris";
 
@@ -29,6 +31,7 @@
     pkgs.libfido2
     texlive
     python-with-pkgs
+    pkgs.slack
   ];
 
   programs.firefox = {
