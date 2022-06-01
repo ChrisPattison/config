@@ -1,11 +1,13 @@
-{ pkgs, ...}:
+{ pkgs, lib, ...}:
 {
 
   imports = [
     #nur-no-pkgs.repos.rycee.hmMOdules.emacs-init
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "slack"
+  ]);
 
   home.username = "chris";
   home.homeDirectory = "/home/chris";
