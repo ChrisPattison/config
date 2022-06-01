@@ -7,7 +7,6 @@
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
     "slack"
-    "mathematica"
   ]);
 
   home.username = "chris";
@@ -35,7 +34,6 @@
     texlive
     python-with-pkgs
     pkgs.slack
-    pkgs.mathematica
   ];
 
   programs.firefox = {
