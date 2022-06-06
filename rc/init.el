@@ -32,13 +32,16 @@
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-PDF-mode t)
+(setq TeX-source-correlate-start-server t)
 (setq-default TeX-master t)
 (setq-default fill-column 120)
 
+(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'linum-mode)
+(setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Zathura")
 
 (add-hook 'python-mode-hook 'linum-mode)
 
