@@ -34,6 +34,7 @@
     texlive
     python-with-pkgs
     pkgs.slack
+    pkgs.zotero
   ];
 
   programs.firefox = {
