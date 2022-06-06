@@ -35,10 +35,14 @@
     python-with-pkgs
     pkgs.slack
     pkgs.zotero
+    pkgs.rustc
+    pkgs.cargo
   ];
 
   programs.firefox = {
     enable = true;
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    ];
   };
 
   programs.zsh = {
