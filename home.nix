@@ -37,6 +37,8 @@
     pkgs.zotero
     pkgs.rustc
     pkgs.cargo
+    pkgs.cmake
+    pkgs.gcc
   ];
 
   programs.firefox = {
