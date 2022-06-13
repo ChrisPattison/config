@@ -84,6 +84,10 @@
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
+  users.users.stan = {
+    isNormalUser = true;
+  };
+
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
