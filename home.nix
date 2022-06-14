@@ -25,8 +25,8 @@
         numpy
         scipy
         matplotlib
-		    pytest
-		    networkx
+        pytest
+        networkx
       ]));
   in [
     pkgs.htop
