@@ -36,7 +36,6 @@
     pkgs.cmake
     pkgs.gcc
     pkgs.git
-    pkgs.singularity
     vscode-with-extensions
   ];
 
