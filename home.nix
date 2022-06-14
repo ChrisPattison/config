@@ -39,6 +39,7 @@
     pkgs.cargo
     pkgs.cmake
     pkgs.gcc
+    pkgs.singularity
   ];
 
   programs.firefox = {
