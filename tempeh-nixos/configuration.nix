@@ -75,6 +75,7 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    singularity
     nano
     wget
   ];
@@ -111,5 +112,7 @@
       experimental-features = nix-command flakes
     '';    
   };
+
+  programs.singularity.enable = true;
 }
 
