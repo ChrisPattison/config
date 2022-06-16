@@ -1,9 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -20,6 +15,13 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
+  # Fn key shenanigans for Keychron K3
+  # From https://github.com/tim-hilt/nixos/blob/main/config/desktop.nix
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+  boot.kernelModules = [ "hid-apple" ];
+  
   # Set up networking
   networking = {
     hostName = "tempeh";
