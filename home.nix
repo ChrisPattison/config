@@ -42,6 +42,12 @@
     pkgs.gcc
   ];
 
+  dconf.settings = {
+    "/org/gnome/desktop/interface" = {
+      # scaling-factor = 2;
+    };
+  };
+  
   programs.firefox = {
     enable = true;
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [

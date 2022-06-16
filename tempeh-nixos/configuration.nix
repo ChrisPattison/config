@@ -72,6 +72,9 @@
   services.gnome.tracker.enable = false;
   services.gnome.games.enable = false;
 
+  # Enable dconf
+  programs.dconf.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
