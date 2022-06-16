@@ -19,6 +19,7 @@
     ]));
   in [
     pkgs.htop
+    pkgs.tmux
     python-with-pkgs
     pkgs.cmake
     pkgs.gcc

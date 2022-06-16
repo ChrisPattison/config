@@ -30,6 +30,7 @@
       ]));
   in [
     pkgs.htop
+    pkgs.tmux
     pkgs.libfido2
     texlive
     python-with-pkgs
