@@ -19,7 +19,8 @@
     texlive = (pkgs.texlive.combine { inherit (pkgs.texlive) 
       scheme-medium collection-fontsextra adjustbox cleveref 
       makecell enumitem collectbox thmtools braket relsize preprint
-      standalone quantikz xargs xstring environ tikz-cd pythontex revtex; });
+      standalone quantikz xargs xstring environ tikz-cd pythontex revtex
+      fifo-stack varwidth tabto tikzmark; });
     python-with-pkgs = (pkgs.python3.withPackages (python-packages: with python-packages; [
         pandas
         numpy
