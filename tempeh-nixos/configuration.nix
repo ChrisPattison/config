@@ -75,7 +75,36 @@
   '';
   services.xserver.desktopManager.gnome.enable = true;
   
+  # Fonts
+  fonts = {
+    fonts = with pkgs; [
+      carlito
+      dejavu_fonts
+      ipafont
+      kochi-substitute
+      source-code-pro
+      ttf_bitstream_vera
+    ];
+    fontconfig.defaultFonts = {
+      monospace = [
+        "DejaVu Sans Mono"
+        "IPAGothic"
+      ];
+      sansSerif = [
+        "DejaVu Sans"
+        "IPAPGothic"
+      ];
+      serif = [
+        "DejaVu Serif"
+        "IPAPMincho"
+      ];
+    };
+  };
 
+  # Japanese IME
+  i18n.inputMethod.enabled = "fcitx";
+  i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+  
   # Configure keymap in X11
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "ctrl:nocaps"; # map caps to ctrl.
