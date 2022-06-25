@@ -59,6 +59,7 @@
   services.xserver.displayManager.gdm = {
     autoSuspend = false;
     enable = true;
+    wayland = true;
   };
   # Fix auto suspend
   # https://github.com/NixOS/nixpkgs/issues/100390
