@@ -62,7 +62,11 @@
     wayland = true;
   };
   
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.desktopManager.plasma5 = {
+    enable = true;
+    useQtScaling = true;
+  };
   
   # Fix auto suspend
   # https://github.com/NixOS/nixpkgs/issues/100390
