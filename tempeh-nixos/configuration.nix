@@ -58,9 +58,12 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm = {
     autoSuspend = false;
-    enable = true;
+    enable = false;
     wayland = true;
   };
+  
+  services.xserver.desktopManager.gnome.enable = true;
+  
   # Fix auto suspend
   # https://github.com/NixOS/nixpkgs/issues/100390
   security.polkit.extraConfig = ''
@@ -79,8 +82,7 @@
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-  
-  services.xserver.desktopManager.gnome.enable = true;
+
   
   # Fonts
   fonts = {
