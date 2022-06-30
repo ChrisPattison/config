@@ -143,9 +143,13 @@
     wget
   ];
 
+  programs.zsh.enable = true;
+  
+
   users.users.chris = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
   };
 
   users.users.stan = {
