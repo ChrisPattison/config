@@ -20,7 +20,7 @@
       scheme-medium collection-fontsextra adjustbox cleveref 
       makecell enumitem collectbox thmtools braket relsize preprint
       standalone quantikz xargs xstring environ tikz-cd pythontex revtex
-      fifo-stack varwidth tabto-ltx tikzmark; });
+      fifo-stack varwidth tabto-ltx tikzmark tikz-3dplot; });
     python-with-pkgs = (pkgs.python3.withPackages (python-packages: with python-packages; [
         pandas
         numpy
