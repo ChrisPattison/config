@@ -13,28 +13,30 @@
     # nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      tempeh = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
+    let
+      system = "x86_64-linux";
+    in {
+      nixosConfigurations = {
+        tempeh = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./tempeh-nixos/configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.users.chris = import ./home.nix;
+              home-manager.users.stan = import ./stan_home.nix;
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+            }
+          ];
+        };
+      };
+      
+      homeConfigurations.chris = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
-          ./tempeh-nixos/configuration.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.users.chris = import ./home.nix;
-            home-manager.users.stan = import ./stan_home.nix;
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
-          }
+          ./home.nix
         ];
       };
     };
-
-    homeConfigurations.chris = home-manager.lib.homeManagerConfiguration {
-      system = "x86_64-linux";
-      configuration = import ./home.nix;
-      username = "chris";
-      homeDirectory = "/home/chris";
-      stateVersion = "22.05";
-    };
-  };
 }
