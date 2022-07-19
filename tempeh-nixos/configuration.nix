@@ -5,6 +5,9 @@
       ./hardware-configuration.nix
     ];
 
+  hardware.enableRedistributableFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;
+  
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = false;
   boot.loader.grub.version = 2;
