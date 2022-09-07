@@ -26,6 +26,7 @@
 
 (straight-use-package 'rust-mode)
 (straight-use-package 'nix-mode)
+(straight-use-package 'python-mode)
 
 (straight-use-package 'auctex)
 
