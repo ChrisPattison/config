@@ -38,5 +38,12 @@
           ./home.nix
         ];
       };
+
+      homeConfigurations.basic = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [
+          ./base.nix
+        ];
+      };
     };
 }
