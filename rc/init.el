@@ -5,6 +5,7 @@
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
+
         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
@@ -44,7 +45,6 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'LaTeX-mode-hook 'linum-mode)
 
-
 (add-hook 'python-mode-hook 'linum-mode)
 
 (straight-use-package 'multiple-cursors)
@@ -57,3 +57,7 @@
 
 
 (straight-use-package 'treemacs)
+
+(straight-use-package 'projectile)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
