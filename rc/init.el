@@ -1,3 +1,5 @@
+;; ======= Straight =========
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -12,22 +14,19 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(setq backup-directory-alist
-      `((".*" . "~/.saves")))
-(setq auto-save-file-name-transforms
-      `((".*" "~/.saves" t)))
+;; (setq backup-directory-alist
+;;       `((".*" . "~/.saves")))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" "~/.saves" t)))
 
-(straight-use-package 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
+
+;; =========== Theme =======
 
 (straight-use-package 'zenburn-theme)
-(load-theme 'zenburn t)
+(straight-use-package 'material-theme)
+(load-theme 'material t)
 
-(straight-use-package 'rust-mode)
-(straight-use-package 'nix-mode)
-(straight-use-package 'python-mode)
+;; ======== Tex ========
 
 (straight-use-package 'auctex)
 
@@ -43,9 +42,13 @@
 (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(add-hook 'LaTeX-mode-hook 'linum-mode)
 
-(add-hook 'python-mode-hook 'linum-mode)
+;; ======== Misc Editor Config ===========
+
+(straight-use-package 'better-defaults)
+
+(setq inhibit-startup-message t)
+(global-linum-mode t)
 
 (straight-use-package 'multiple-cursors)
 (global-unset-key (kbd "M-<down-mouse-1>"))
@@ -55,9 +58,34 @@
 (global-set-key (kbd "C-S-n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-p") 'mc/mark-previous-like-this)
 
+(straight-use-package 'magit)
 
 (straight-use-package 'treemacs)
 
 (straight-use-package 'projectile)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; =========== Org =========
+
+(straight-use-package 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+
+;; ========== Misc modes ======
+
+(straight-use-package 'rust-mode)
+(straight-use-package 'nix-mode)
+
+
+;; ======== Python ========
+
+(straight-use-package 'elpy)
+(straight-use-package 'flycheck)
+(straight-use-package 'blacken)
+(elpy-enable)
+
+;; Use flycheck
+(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+(add-hook 'elpy-mode-hook 'flycheck-mode)
