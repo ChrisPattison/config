@@ -47,6 +47,7 @@
 
 (straight-use-package 'better-defaults)
 
+(global-auto-revert-mode t)
 (setq inhibit-startup-message t)
 (global-linum-mode t)
 
