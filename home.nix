@@ -7,6 +7,7 @@
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
     "slack"
+    "zoom"
   ]);
 
   home.username = "chris";
@@ -36,6 +37,7 @@
     texlive
     python-with-pkgs
     pkgs.slack
+    pkgs.zoom-us
     pkgs.zotero
     pkgs.rustc
     pkgs.cargo
