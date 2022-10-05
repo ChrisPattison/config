@@ -142,8 +142,14 @@
   services.printing.drivers = [ pkgs.brlaser ];
 
   # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
@@ -182,7 +188,6 @@
 
   # Flakes
   nix = {
-    package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';    
