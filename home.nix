@@ -67,6 +67,7 @@
 
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs-gtk;
     extraConfig = builtins.readFile (./. + "/rc/init.el");
   };
 
