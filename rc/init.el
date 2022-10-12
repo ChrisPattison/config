@@ -46,7 +46,7 @@
 
 ;; ======== Misc Editor Config ===========
 
-;; (straight-use-package 'better-defaults)
+(straight-use-package '(better-defaults :host nil :repo "https://git.sr.ht/~technomancy/better-defaults"))
 
 (setq inhibit-startup-message t)
 
