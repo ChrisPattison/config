@@ -19,6 +19,7 @@
 ;; (setq auto-save-file-name-transforms
 ;;       `((".*" "~/.saves" t)))
 
+(setq straight-vc-git-default-protocol 'ssh)
 
 ;; =========== Theme =======
 
@@ -45,10 +46,14 @@
 
 ;; ======== Misc Editor Config ===========
 
-(straight-use-package 'better-defaults)
+(straight-use-package '(better-defaults :host nil :repo "https://git.sr.ht/~technomancy/better-defaults"))
 
 (global-auto-revert-mode t)
 (setq inhibit-startup-message t)
+
+(global-auto-revert-mode t)
+(global-hl-line-mode t)
+(delete-selection-mode t)
 (global-linum-mode t)
 
 (straight-use-package 'multiple-cursors)
