@@ -51,6 +51,8 @@
 (global-auto-revert-mode t)
 (setq inhibit-startup-message t)
 
+(setq make-backup-files nil)
+
 (global-auto-revert-mode t)
 (global-hl-line-mode t)
 (delete-selection-mode t)
