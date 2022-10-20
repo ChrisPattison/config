@@ -8,7 +8,6 @@
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
     "slack"
     "zoom"
-    "mathematica"
   ]);
 
   home.username = "chris";
