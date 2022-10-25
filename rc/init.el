@@ -19,7 +19,7 @@
 ;; (setq auto-save-file-name-transforms
 ;;       `((".*" "~/.saves" t)))
 
-(setq straight-vc-git-default-protocol 'ssh)
+(setq straight-vc-git-default-protocol 'https)
 
 ;; =========== Theme =======
 
@@ -85,6 +85,10 @@
 
 (straight-use-package 'rust-mode)
 (straight-use-package 'nix-mode)
+(straight-use-package '(asy-mode
+	     :host github
+             :files ("base/asy-mode.el")
+             :repo "vectorgraphics/asymptote"))
 
 
 ;; ======== Python ========
