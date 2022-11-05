@@ -30,6 +30,7 @@
     pkgs.tmux
     pkgs.libfido2
     python-with-pkgs
+    pkgs.thunderbird
     pkgs.slack
     pkgs.zoom-us
     pkgs.zotero
