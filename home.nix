@@ -69,6 +69,9 @@
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
+    shellAliases = {
+      "open" = "xdg-open";
+    };
   };
 
   programs.git = {
