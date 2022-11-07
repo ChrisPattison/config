@@ -40,6 +40,13 @@
     pkgs.gcc
   ];
 
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+    };
+  };
+  
   dconf.settings = {
     "/org/gnome/desktop/interface" = {
       # scaling-factor = 2;
