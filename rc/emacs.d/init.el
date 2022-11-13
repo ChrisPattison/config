@@ -8,8 +8,8 @@
     (with-current-buffer
         (url-retrieve-synchronously
 
-        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
+        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.silent"
+         'el 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
@@ -30,6 +30,9 @@
 ;; ======== Tex ========
 
 (straight-use-package 'auctex)
+(straight-use-package 'cdlatex)
+(straight-use-package 'yasnippet)
+(yas-global-mode 1)
 
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -39,6 +42,7 @@
 (setq-default fill-column 120)
 (setq TeX-view-program-selection '((output-pdf "Zathura")))
 
+(add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 ;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
@@ -77,8 +81,13 @@
 ;; =========== Org =========
 
 (straight-use-package 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+(add-hook 'org-mode-hook #'turn-on-org-cdlatex)
+
+(setq org-pretty-entities t)
 (setq org-log-done t)
 
 ;; ========== Misc modes ======
