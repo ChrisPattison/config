@@ -48,6 +48,8 @@
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 
+(setq TeX-electric-math (cons "\\(" "\\)"))
+
 ;; ======== Misc Editor Config ===========
 
 (straight-use-package '(better-defaults :host nil :repo "https://git.sr.ht/~technomancy/better-defaults"))
