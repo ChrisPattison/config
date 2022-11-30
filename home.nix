@@ -43,7 +43,7 @@
   xdg = {
     enable = true;
     mimeApps = {
-      enable = true;
+      # enable = true;
     };
   };
   
@@ -59,12 +59,12 @@
     ];
   };
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-    ];
-  };
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-mozc
+  #   ];
+  # };
 
   programs.zsh = {
     enable = true;
