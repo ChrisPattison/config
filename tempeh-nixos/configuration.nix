@@ -18,6 +18,8 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Fn key shenanigans for Keychron K3
   # From https://github.com/tim-hilt/nixos/blob/main/config/desktop.nix
   boot.extraModprobeConfig = ''
@@ -124,6 +126,9 @@
   # Japanese IME
   # i18n.inputMethod.enabled = "fcitx5";
   # i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
+
+  # QMK udev rules
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
   
   # Configure keymap in X11
   services.xserver.layout = "us";
