@@ -8,6 +8,7 @@
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
     "slack"
     "zoom"
+    "discord"
   ]);
 
   home.username = "chris";
@@ -38,6 +39,7 @@
     pkgs.cargo
     pkgs.cmake
     pkgs.gcc
+    pkgs.discord
   ];
 
   xdg = {
@@ -93,7 +95,7 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-gtk;
-    extraConfig = builtins.readFile (./. + "/rc/init.el");
+#    extraConfig = builtins.readFile (./. + "/rc/init.el");
   };
 
   accounts.email = {

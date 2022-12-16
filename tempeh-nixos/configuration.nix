@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib,  ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -30,18 +30,18 @@
   # Set up networking
   networking = {
     hostName = "tempeh";
-    nameservers = [
-      "131.215.9.49"
-      "131.215.139.100"
-      "131.215.254.100"
-    ];
-    defaultGateway = "131.215.104.254";
-    interfaces.enp2s0.ipv4 = {
-      addresses = [{
-        address = "131.215.104.21";
-        prefixLength = 24;
-      }];
-    };
+  #   nameservers = [
+  #     "131.215.9.49"
+  #     "131.215.139.100"
+  #     "131.215.254.100"
+  #   ];
+  #   defaultGateway = "131.215.104.254";
+  #   interfaces.enp2s0.ipv4 = {
+  #     addresses = [{
+  #       address = "131.215.104.21";
+  #       prefixLength = 24;
+  #     }];
+  #   };
   };
       
   
@@ -50,14 +50,10 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+  time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "ja_JP.UTF-8/UTF-8"
-  ];
-  i18n.defaultLocale = "en_US.UTF-8/UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
@@ -164,7 +160,15 @@
   ];
 
   programs.zsh.enable = true;
-  
+
+  # Enable some workarounds for steam per issue #47932
+  nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-run"
+    "steam-original"
+    "steam-runtime"
+  ]);
+  programs.steam.enable = true;
 
   users.users.chris = {
     isNormalUser = true;
