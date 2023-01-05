@@ -61,12 +61,12 @@
     ];
   };
 
-  # i18n.inputMethod = {
-  #   enabled = "fcitx5";
-  #   fcitx5.addons = with pkgs; [
-  #     fcitx5-mozc
-  #   ];
-  # };
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+    ];
+  };
 
   programs.zsh = {
     enable = true;
@@ -94,7 +94,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs-gtk;
+    package = pkgs.emacs;
 #    extraConfig = builtins.readFile (./. + "/rc/init.el");
   };
 
