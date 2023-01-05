@@ -30,18 +30,18 @@
   # Set up networking
   networking = {
     hostName = "tempeh";
-  #   nameservers = [
-  #     "131.215.9.49"
-  #     "131.215.139.100"
-  #     "131.215.254.100"
-  #   ];
-  #   defaultGateway = "131.215.104.254";
-  #   interfaces.enp2s0.ipv4 = {
-  #     addresses = [{
-  #       address = "131.215.104.21";
-  #       prefixLength = 24;
-  #     }];
-  #   };
+    nameservers = [
+      "131.215.9.49"
+      "131.215.139.100"
+      "131.215.254.100"
+    ];
+    defaultGateway = "131.215.104.254";
+    interfaces.enp2s0.ipv4 = {
+      addresses = [{
+        address = "131.215.104.21";
+        prefixLength = 24;
+      }];
+    };
   };
       
   
