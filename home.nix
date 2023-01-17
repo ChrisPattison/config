@@ -84,6 +84,7 @@
       pull.rebase = false;
       rebase.autoSquash = true;
       core.editor = "nano";
+      init.defaultBranch = "main";
     };
   };
 
@@ -94,7 +95,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs-gtk;
 #    extraConfig = builtins.readFile (./. + "/rc/init.el");
   };
 
