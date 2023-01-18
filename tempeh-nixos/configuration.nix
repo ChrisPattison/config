@@ -103,6 +103,7 @@
       source-code-pro
       ttf_bitstream_vera
       xkcd-font
+      comic-neue
     ];
     fontconfig.defaultFonts = {
       monospace = [
