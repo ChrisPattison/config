@@ -164,6 +164,7 @@
 
   # Enable some workarounds for steam per issue #47932
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "xkcd-font-unstable"
     "steam"
     "steam-run"
     "steam-original"
