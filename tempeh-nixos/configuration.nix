@@ -102,6 +102,7 @@
       kochi-substitute
       source-code-pro
       ttf_bitstream_vera
+      xkcd-font
     ];
     fontconfig.defaultFonts = {
       monospace = [
