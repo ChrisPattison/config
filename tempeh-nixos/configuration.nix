@@ -165,6 +165,7 @@
 
   # Enable some workarounds for steam per issue #47932
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "xkcd-font"
     "xkcd-font-unstable"
     "steam"
     "steam-run"
@@ -186,7 +187,7 @@
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.passwordAuthentication = false;
+  services.openssh.settings.PasswordAuthentication = false;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
