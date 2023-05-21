@@ -15,7 +15,6 @@
   home.homeDirectory = "/home/chris";
 
   home.stateVersion = "22.11";
-  programs.home-manager.enable = true;
 
   home.packages = let
     python-with-pkgs = (pkgs.python3.withPackages (python-packages: with python-packages; [
