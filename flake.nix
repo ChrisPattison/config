@@ -17,7 +17,7 @@
   outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; overlays = [ emacs-overlay ]; };
+      pkgs = import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; };
     in {
       nixosConfigurations = {
         tempeh = nixpkgs.lib.nixosSystem {
