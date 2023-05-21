@@ -3,14 +3,18 @@
 
 (eval-when-compile
   (require 'use-package))
+
+(setq inhibit-startup-screen t)
 ;; =========== Theme =======
 
 
 (use-package zenburn-theme
-	     :ensure t)
+  :ensure t)
 (use-package material-theme
-	     :ensure t)
-;; (load-theme material t)
+  :ensure t)
+
+
+(load-theme 'material t)
 
 ;; ======== Tex ========
 

@@ -2,7 +2,6 @@
 {
 
   imports = [
-    #nur-no-pkgs.repos.rycee.hmMOdules.emacs-init
   ];
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
@@ -94,6 +93,11 @@
   in {
     enable = true;
     package = emacs;
+  };
+
+  home.file.".emacs.d/snippets" = {
+    source = ./rc/emacs.d/snippets;
+    recursive = true;
   };
 
   accounts.email = {
