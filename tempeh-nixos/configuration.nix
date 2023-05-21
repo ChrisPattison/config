@@ -175,6 +175,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFsVHSyjPxsGM1GAKy51YBBaZFpWBp0/lv1z3Ge6RFFH chris@Christophers-MacBook-Pro.local"
+    ];
   };
 
   users.users.stan = {
