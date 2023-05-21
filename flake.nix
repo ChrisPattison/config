@@ -11,7 +11,7 @@
 
     # Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, ... }:
