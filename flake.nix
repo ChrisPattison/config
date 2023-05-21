@@ -8,11 +8,16 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Emacs overlay
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, ... }:
     let
       system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; overlays = [ emacs-overlay ]; };
     in {
       nixosConfigurations = {
         tempeh = nixpkgs.lib.nixosSystem {
@@ -24,7 +29,7 @@
       };
       
       homeConfigurations.chris = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
         modules = [
           ./home.nix
         ];

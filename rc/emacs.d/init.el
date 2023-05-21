@@ -1,56 +1,42 @@
-;; ======= Straight =========
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'el 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-;; (setq backup-directory-alist
-;;       `((".*" . "~/.saves")))
-;; (setq auto-save-file-name-transforms
-;;       `((".*" "~/.saves" t)))
-
-(setq straight-vc-git-default-protocol 'https)
-
 ;; =========== Theme =======
 
-(straight-use-package 'zenburn-theme)
-(straight-use-package 'material-theme)
+(use-package 'zenburn-theme
+	     :ensure t)
+(use-package 'material-theme
+	     :ensure t)
 (load-theme 'material t)
 
 ;; ======== Tex ========
 
-(straight-use-package 'auctex)
-(straight-use-package 'cdlatex)
-(straight-use-package 'yasnippet)
-(yas-global-mode 1)
+(use-package 'auctex
+	     :defer t
+	     :init
+	     (setq TeX-auto-save t)
+	     (setq TeX-parse-self t)
+	     (setq TeX-PDF-mode t)
+	     (setq TeX-source-correlate-start-server t)
+	     (setq-default TeX-master t)
+	     (setq-default fill-column 120)
+	     (setq TeX-view-program-selection '((output-pdf "Zathura")))
+	     (setq TeX-electric-math (cons "\\(" "\\)"))
+	     (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
+	     (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+	     ;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+	     (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+	     (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+	     :ensure t)
+(use-package 'cdlatex
+	     :ensure t)
+(use-package 'yasnippet
+	     :config
+	     (yas-global-mode 1)
+	     :ensure t)
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-PDF-mode t)
-(setq TeX-source-correlate-start-server t)
-(setq-default TeX-master t)
-(setq-default fill-column 120)
-(setq TeX-view-program-selection '((output-pdf "Zathura")))
-
-(add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-
-(setq TeX-electric-math (cons "\\(" "\\)"))
 
 ;; ======== Misc Editor Config ===========
 
-(straight-use-package '(better-defaults :host nil :repo "https://git.sr.ht/~technomancy/better-defaults"))
+(use-package 'better-defaults
+	     :ensure t)
 
 (global-auto-revert-mode t)
 
@@ -63,7 +49,8 @@
 (delete-selection-mode t)
 (global-linum-mode t)
 
-(straight-use-package 'multiple-cursors)
+(use-package 'multiple-cursors
+	     :ensure t)
 (global-unset-key (kbd "M-<down-mouse-1>"))
 (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 ;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -71,34 +58,27 @@
 (global-set-key (kbd "C-S-n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-p") 'mc/mark-previous-like-this)
 
-(straight-use-package 'magit)
+(use-package 'magit
+	     :ensure t)
 
-(straight-use-package 'treemacs)
+(use-package 'treemacs
+	     :ensure t)
 
-(straight-use-package 'projectile)
+(use-package 'projectile
+	     :ensure t)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-;; =========== Org =========
-
-(straight-use-package 'org)
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
-
-(add-hook 'org-mode-hook #'turn-on-org-cdlatex)
-
-(setq org-pretty-entities t)
-(setq org-log-done t)
-
 ;; ========== Misc modes ======
 
-(straight-use-package 'rust-mode)
-(straight-use-package 'nix-mode)
-(straight-use-package '(asy-mode
-	     :host github
-             :files ("base/asy-mode.el")
-             :repo "vectorgraphics/asymptote"))
+(use-package 'rust-mode
+	     :ensure t)
+(use-package 'nix-mode
+	     :ensure t)
+;; (straight-use-package '(asy-mode
+;; 	     :host github
+;;              :files ("base/asy-mode.el")
+;;              :repo "vectorgraphics/asymptote"))
 
 
 ;; ======== Python ========

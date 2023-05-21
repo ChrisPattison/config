@@ -24,7 +24,7 @@
         matplotlib
         pytest
         networkx
-      ]));
+    ]));
   in [
     pkgs.htop
     pkgs.tmux
@@ -85,10 +85,15 @@
     };
   };
 
-  programs.emacs = {
+  
+  programs.emacs = let
+    emacs = pkgs.emacsWithPackagesFromUsePackage {
+      config = ./rc/init.el;
+      defaultInitFile = true;
+    };
+  in {
     enable = true;
-    package = pkgs.emacs-gtk;
-#    extraConfig = builtins.readFile (./. + "/rc/init.el");
+    package = emacs;
   };
 
   accounts.email = {
