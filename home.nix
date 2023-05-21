@@ -88,7 +88,7 @@
   
   programs.emacs = let
     emacs = pkgs.emacsWithPackagesFromUsePackage {
-      config = ./rc/init.el;
+      config = ./rc/emacs.d/init.el;
       defaultInitFile = true;
     };
   in {

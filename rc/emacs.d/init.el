@@ -1,14 +1,20 @@
+(require 'package)
+(package-initialize)
+
+(eval-when-compile
+  (require 'use-package))
 ;; =========== Theme =======
 
-(use-package 'zenburn-theme
+
+(use-package zenburn-theme
 	     :ensure t)
-(use-package 'material-theme
+(use-package material-theme
 	     :ensure t)
-(load-theme 'material t)
+;; (load-theme material t)
 
 ;; ======== Tex ========
 
-(use-package 'auctex
+(use-package auctex
 	     :defer t
 	     :init
 	     (setq TeX-auto-save t)
@@ -25,9 +31,9 @@
 	     (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 	     (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 	     :ensure t)
-(use-package 'cdlatex
+(use-package cdlatex
 	     :ensure t)
-(use-package 'yasnippet
+(use-package yasnippet
 	     :config
 	     (yas-global-mode 1)
 	     :ensure t)
@@ -35,7 +41,7 @@
 
 ;; ======== Misc Editor Config ===========
 
-(use-package 'better-defaults
+(use-package better-defaults
 	     :ensure t)
 
 (global-auto-revert-mode t)
@@ -49,7 +55,7 @@
 (delete-selection-mode t)
 (global-linum-mode t)
 
-(use-package 'multiple-cursors
+(use-package multiple-cursors
 	     :ensure t)
 (global-unset-key (kbd "M-<down-mouse-1>"))
 (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
@@ -58,22 +64,22 @@
 (global-set-key (kbd "C-S-n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-p") 'mc/mark-previous-like-this)
 
-(use-package 'magit
+(use-package magit
 	     :ensure t)
 
-(use-package 'treemacs
+(use-package treemacs
 	     :ensure t)
 
-(use-package 'projectile
+(use-package projectile
 	     :ensure t)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; ========== Misc modes ======
 
-(use-package 'rust-mode
+(use-package rust-mode
 	     :ensure t)
-(use-package 'nix-mode
+(use-package nix-mode
 	     :ensure t)
 ;; (straight-use-package '(asy-mode
 ;; 	     :host github
