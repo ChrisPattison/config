@@ -7,6 +7,7 @@
 (setq inhibit-startup-screen t)
 ;; =========== Theme =======
 
+(setq custom-safe-themes t)
 
 (use-package zenburn-theme
   :ensure t)
