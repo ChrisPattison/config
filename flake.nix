@@ -8,9 +8,6 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # NUR packages
-    # nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -22,12 +19,6 @@
           inherit system;
           modules = [
             ./tempeh-nixos/configuration.nix
-            home-manager.nixosModules.home-manager {
-              home-manager.users.chris = import ./home.nix;
-              home-manager.users.stan = import ./stan_home.nix;
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
-            }
           ];
         };
       };
@@ -36,13 +27,6 @@
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ./home.nix
-        ];
-      };
-
-      homeConfigurations.basic = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [
-          ./base.nix
         ];
       };
     };

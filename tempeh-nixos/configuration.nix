@@ -121,10 +121,6 @@
     };
   };
 
-  # Japanese IME
-  # i18n.inputMethod.enabled = "fcitx5";
-  # i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
-
   # QMK udev rules
   services.udev.packages = [ pkgs.qmk-udev-rules ];
   
@@ -159,6 +155,7 @@
   environment.systemPackages = with pkgs; [
     nano
     wget
+    home-manager
   ];
 
   programs.zsh.enable = true;
