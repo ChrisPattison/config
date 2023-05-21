@@ -86,11 +86,6 @@
     };
   };
 
-  programs.zathura = {
-    enable = true;
-    extraConfig = builtins.readFile (./. + "/rc/emacs-key-for-zathura.txt");
-  };
-
   programs.emacs = {
     enable = true;
     package = pkgs.emacs-gtk;
