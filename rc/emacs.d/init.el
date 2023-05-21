@@ -1,5 +1,4 @@
 ;; ======= Straight =========
-
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -7,8 +6,7 @@
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
-
-        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.silent"
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
          'el 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
@@ -55,6 +53,7 @@
 (straight-use-package '(better-defaults :host nil :repo "https://git.sr.ht/~technomancy/better-defaults"))
 
 (global-auto-revert-mode t)
+
 (setq inhibit-startup-message t)
 
 (setq make-backup-files nil)
@@ -103,12 +102,15 @@
 
 
 ;; ======== Python ========
+(setq python-indent-offset 4)
+(setq python-indent-guess-indent-offset nil)
 
-(straight-use-package 'elpy)
-(straight-use-package 'flycheck)
-(straight-use-package 'blacken)
-(elpy-enable)
+;; (straight-use-package 'elpy)
+;; (straight-use-package 'flycheck)
+;; (straight-use-package 'blacken)
+;; (elpy-enable)
 
-;; Use flycheck
-(setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-(add-hook 'elpy-mode-hook 'flycheck-mode)
+;; ;; Use flycheck
+;; (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;; (add-hook 'elpy-mode-hook 'flycheck-mode)
+
