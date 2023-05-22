@@ -24,6 +24,14 @@
         pytest
         networkx
     ]));
+    latex = pkgs.texlive.combine {
+          inherit (pkgs.texlive)
+            scheme-full latex-bin latexmk adjustbox beamer
+            beamertheme-metropolis pgfopts fontspec thmtools braket quantikz
+            xargs xstring environ tikz-cd tabto-ltx tikzmark collection-latex
+            biblatex tikz-3dplot psnfss babel siunitx physics pgfplots mathtools
+            tikzsymbols xkeyval collectbox collection-mathscience float qrcode;
+    };
   in [
     pkgs.htop
     pkgs.tmux
@@ -38,6 +46,7 @@
     pkgs.cmake
     pkgs.gcc
     pkgs.discord
+    latex
   ];
 
   xdg = {
