@@ -28,6 +28,7 @@
 	     (setq TeX-source-correlate-start-server t)
 	     (setq-default TeX-master t)
 	     (setq-default fill-column 120)
+             (setq-default preview-scale-function 2)
 	     (setq TeX-view-program-selection '((output-pdf "Zathura")))
 	     (setq TeX-electric-math (cons "\\(" "\\)"))
 	     (add-hook 'LaTeX-mode-hook #'turn-on-cdlatex)
