@@ -24,7 +24,7 @@
         tempeh = linux-pkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./tempeh-nixos/configuration.nix
+            ./nixos/tempeh/configuration.nix
           ];
         };
       };
