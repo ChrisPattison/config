@@ -14,32 +14,35 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, flake-utils, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; };
+      pkgs = (system: import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
+      linux-pkgs = pkgs "x86_64-linux";
+      darwin-pkgs = pkgs "x86_64-darwin";
     in {
       nixosConfigurations = {
-        tempeh = nixpkgs.lib.nixosSystem {
-          inherit system;
+        tempeh = linux-pkgs.lib.nixosSystem {
+          system = "x86_64-linux";
           modules = [
             ./tempeh-nixos/configuration.nix
           ];
         };
       };
       
-      homeConfigurations.chris = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home.nix
-        ];
-      };
+      homeConfigurations = {
+        chris = home-manager.lib.homeManagerConfiguration {
+          pkgs = linux-pkgs;
+          modules = [
+            ./home.nix
+          ];
+        };
 
-      homeConfigurations.darwin = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./darwin-home.nix
-        ];
+        darwin = home-manager.lib.homeManagerConfiguration {
+          pkgs = darwin-pkgs;
+          modules = [
+            ./darwin-home.nix
+          ];
+        };
       };
     };
 }
