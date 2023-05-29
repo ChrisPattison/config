@@ -2,9 +2,9 @@
 {
 
   imports = [
-    ./modules/emacs.nix
-    ./modules/git.nix
-    ./modules/email.nix
+    ../modules/emacs.nix
+    ../modules/git.nix
+    ../modules/email.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [

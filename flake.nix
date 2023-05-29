@@ -14,7 +14,7 @@
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, flake-utils, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, emacs-overlay, ... }:
     let
       pkgs = (system: import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
       linux-pkgs = pkgs "x86_64-linux";
@@ -33,14 +33,14 @@
         chris = home-manager.lib.homeManagerConfiguration {
           pkgs = linux-pkgs;
           modules = [
-            ./home.nix
+            ./homes/home.nix
           ];
         };
 
         darwin = home-manager.lib.homeManagerConfiguration {
           pkgs = darwin-pkgs;
           modules = [
-            ./darwin-home.nix
+            ./homes/darwin-home.nix
           ];
         };
       };
