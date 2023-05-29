@@ -58,6 +58,8 @@
       # enable = true;
     };
   };
+
+  my.emacs.enable = true;
   
   dconf.settings = {
     "/org/gnome/desktop/interface" = {
