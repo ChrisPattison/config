@@ -34,5 +34,12 @@
           ./home.nix
         ];
       };
+
+      homeConfigurations.darwin = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./darwin-home.nix
+        ];
+      };
     };
 }
