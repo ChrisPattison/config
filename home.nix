@@ -3,6 +3,8 @@
 
   imports = [
     ./modules/emacs.nix
+    ./modules/git.nix
+    ./modules/email.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
@@ -81,28 +83,5 @@
       "open" = "xdg-open";
     };
   };
-
-  programs.git = {
-    enable = true;
-    userName = "Chris Pattison";
-    userEmail = "chpattison@gmail.com";
-    extraConfig = {
-      pull.rebase = false;
-      rebase.autoSquash = true;
-      core.editor = "nano";
-      init.defaultBranch = "main";
-    };
-  };
-
-  accounts.email = {
-    accounts.outlook = {
-      primary = true;
-      realName = "Chris Pattison";
-      address = "cpattiso@caltech.edu";
-
-      imap.host = "outlook.office365.com";
-      smtp.host = "smtp.office365.com";
-      userName = "cpattiso@caltech.edu";
-    };
-  };
 }
+
