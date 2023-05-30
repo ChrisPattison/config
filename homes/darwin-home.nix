@@ -1,8 +1,7 @@
 { pkgs, lib, ...}:
 {
   imports = [
-    ../modules/emacs.nix
-    ../modules/git.nix
+    ../modules/top.nix
   ];
 
   home.stateVersion = "22.11";
@@ -16,4 +15,6 @@
     enable = true;
     package = pkgs.emacsMacport;
   };
+
+  my.git.enable = true;
 }

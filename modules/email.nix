@@ -1,12 +1,18 @@
-{ pkgs, lib, ...}:
-{
+{ config, pkgs, lib, ...}:
+with lib;
+let
+  cfg = config.my.email;
+in {
   imports = [
   ];
 
   options = {
+    my.email = {
+      enable = mkEnableOption "Customized email";
+    };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     accounts.email = {
       accounts.outlook = {
         primary = true;

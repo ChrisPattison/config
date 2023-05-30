@@ -1,12 +1,18 @@
-{ pkgs, lib, ...}:
-{
+{ config, pkgs, lib, ...}:
+with lib;
+let
+  cfg = config.my.git;
+in {
   imports = [
   ];
 
   options = {
+    my.git = {
+      enable = mkEnableOption "Customized git";
+    };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     programs.git = {
       enable = true;
       userName = "Chris Pattison";

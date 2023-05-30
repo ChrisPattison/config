@@ -2,9 +2,7 @@
 {
 
   imports = [
-    ../modules/emacs.nix
-    ../modules/git.nix
-    ../modules/email.nix
+    ../modules/top.nix
   ];
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
@@ -59,6 +57,9 @@
     };
   };
 
+  my.email.enable = true;
+  my.git.enable = true;
+  
   my.emacs.enable = true;
   
   dconf.settings = {
