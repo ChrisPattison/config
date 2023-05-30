@@ -55,23 +55,30 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "ja_JP.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm = {
-    autoSuspend = false;
-    enable = false;
-    wayland = true;
+  services.xserver = {
+    enable = true;
+    dpi = 160;
+    upscaleDefaultCursor = true;
+
+    displayManager.gdm = {
+      autoSuspend = false;
+      enable = false;
+      wayland = true;
+    };
+    
+    desktopManager.gnome.enable = false;
+    desktopManager.plasma5 = {
+      enable = true;
+      useQtScaling = true;
+    };
   };
   
-  services.xserver.desktopManager.gnome.enable = false;
-  services.xserver.desktopManager.plasma5 = {
-    enable = true;
-    useQtScaling = true;
-  };
+  
+  
   
   # Fix auto suspend
   # https://github.com/NixOS/nixpkgs/issues/100390
