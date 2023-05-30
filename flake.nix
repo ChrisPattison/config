@@ -21,7 +21,7 @@
       darwin-pkgs = pkgs "x86_64-darwin";
     in {
       nixosConfigurations = {
-        tempeh = linux-pkgs.lib.nixosSystem {
+        tempeh = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./nixos/tempeh/configuration.nix
