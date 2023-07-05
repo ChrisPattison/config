@@ -52,7 +52,7 @@
   time.timeZone = "America/Los_Angeles";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
+  # i18n.defaultLocale = "ja_JP.UTF-8";
   console = {
     useXkbConfig = true; # use xkbOptions in tty.
   };
