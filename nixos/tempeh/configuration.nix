@@ -190,6 +190,14 @@
     isNormalUser = true;
   };
 
+  users.users.nadine = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMBZMZJseHjb6Wmf1WIybbWicyyZnaB9BUL6SuMr7CE4 nmeister@college.harvard.edu"
+    ];
+  };
+
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
