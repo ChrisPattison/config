@@ -36,6 +36,13 @@
             ./homes/home.nix
           ];
         };
+        
+        nadine = home-manager.lib.homeManagerConfiguration {
+          pkgs = linux-pkgs;
+          modules = [
+            ./homes/nadine-home.nix
+          ];
+        };
 
         darwin = home-manager.lib.homeManagerConfiguration {
           pkgs = darwin-pkgs;
