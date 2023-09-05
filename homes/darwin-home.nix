@@ -9,7 +9,7 @@
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
   
-  home.packages = [ pkgs.home-manager ];
+  home.packages = [ pkgs.home-manager pkgs.htop ];
 
   my.emacs = {
     enable = true;
