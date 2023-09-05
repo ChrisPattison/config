@@ -175,7 +175,7 @@
     "steam-original"
     "steam-runtime"
   ]);
-  programs.steam.enable = true;
+  programs.steam.enable = false;
 
   users.users.chris = {
     isNormalUser = true;
