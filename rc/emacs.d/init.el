@@ -15,7 +15,7 @@
   :ensure t)
 
 
-(load-theme 'material t)
+(load-theme 'material-light t)
 
 ;; ======== Tex ========
 
