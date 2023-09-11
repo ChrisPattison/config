@@ -11,6 +11,14 @@
   
   home.packages = [ pkgs.home-manager pkgs.htop ];
 
+  nix.package = pkgs.nix;
+  nix.settings = {
+    extra-experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
   my.emacs = {
     enable = true;
     package = pkgs.emacsMacport;
