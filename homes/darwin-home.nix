@@ -9,7 +9,7 @@
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
   
-  home.packages = [ pkgs.home-manager pkgs.htop ];
+  home.packages = [ pkgs.home-manager pkgs.htop pkgs.texlive.combined.scheme-medium pkgs.ghostscript ];
 
   nix.package = pkgs.nix;
   nix.settings = {

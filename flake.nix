@@ -3,10 +3,10 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Emacs overlay
@@ -19,6 +19,7 @@
       pkgs = (system: import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
       linux-pkgs = pkgs "x86_64-linux";
       darwin-pkgs = pkgs "x86_64-darwin";
+      mba-pkgs = pkgs "aarch64-darwin";
     in {
       nixosConfigurations = {
         tempeh = nixpkgs.lib.nixosSystem {
@@ -45,6 +46,13 @@
         };
 
         darwin = home-manager.lib.homeManagerConfiguration {
+          pkgs = darwin-pkgs;
+          modules = [
+            ./homes/darwin-home.nix
+          ];
+        };
+        
+        mba = home-manager.lib.homeManagerConfiguration {
           pkgs = darwin-pkgs;
           modules = [
             ./homes/darwin-home.nix
