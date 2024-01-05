@@ -81,6 +81,16 @@
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
+;; ======== Lean ========
+;; (setq load-path (cons "~/.emacs.d/lean4-mode" load-path))
+;; (use-package lean4-mode)
+(use-package dash :ensure t)
+(use-package f :ensure t)
+(use-package flycheck :ensure t)
+(use-package lsp-mode :ensure t)
+(use-package magit-section :ensure t)
+(use-package s :ensure t)
+
 ;; ========== Misc modes ======
 
 (use-package rust-mode
