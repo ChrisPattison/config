@@ -1,3 +1,4 @@
+
 { pkgs, lib, ...}:
 {
   imports = [
@@ -17,10 +18,6 @@
       "nix-command"
       "flakes"
     ];
-  };
-
-  programs.skim = {
-    enable = true;
   };
 
   my.emacs = {
