@@ -19,6 +19,10 @@
     ];
   };
 
+  programs.skim = {
+    enable = true;
+  };
+
   my.emacs = {
     enable = true;
     package = pkgs.emacsMacport;
