@@ -101,7 +101,7 @@
   
   # Fonts
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       carlito
       dejavu_fonts
       ipafont
