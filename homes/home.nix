@@ -68,6 +68,10 @@
       # scaling-factor = 2;
     };
   };
+
+  programs.sioyek = {
+    enable = true;
+  };
   
   programs.firefox = {
     enable = true;
