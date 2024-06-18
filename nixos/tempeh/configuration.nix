@@ -131,9 +131,9 @@
   services.udev.packages = [ pkgs.qmk-udev-rules ];
   
   # Configure keymap in X11
-  services.xserver.layout = "us";
-  services.xserver.xkbVariant = "colemak";
-  services.xserver.xkbOptions = "ctrl:nocaps"; # map caps to ctrl.
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.variant = "colemak";
+  services.xserver.xkb.options = "ctrl:nocaps"; # map caps to ctrl.
 
   # Gnome config
   services.gnome.tracker-miners.enable = false;
