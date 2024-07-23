@@ -59,7 +59,7 @@
 (global-auto-revert-mode t)
 (global-hl-line-mode t)
 (delete-selection-mode t)
-(global-linum-mode t)
+(global-display-line-numbers-mode t)
 
 (use-package multiple-cursors
 	     :ensure t)
