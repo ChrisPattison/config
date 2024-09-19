@@ -186,9 +186,9 @@
     ];
   };
 
-  users.users.stan = {
-    isNormalUser = true;
-  };
+  # users.users.stan = {
+  #   isNormalUser = true;
+  # };
 
   users.users.nadine = {
     isNormalUser = true;
