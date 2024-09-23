@@ -53,7 +53,7 @@
         };
         
         mba = home-manager.lib.homeManagerConfiguration {
-          pkgs = darwin-pkgs;
+          pkgs = mba-pkgs;
           modules = [
             ./homes/darwin-home.nix
           ];
