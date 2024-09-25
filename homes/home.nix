@@ -9,6 +9,8 @@
     "slack"
     "zoom"
     "discord"
+    "code"
+    "vscode"
   ]);
 
   home.username = "chris";
@@ -48,6 +50,8 @@
     pkgs.cmake
     pkgs.gcc
     pkgs.discord
+    pkgs.vscode-fhs
+    pkgs.typst
     latex
   ];
 
