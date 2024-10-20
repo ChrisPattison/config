@@ -52,6 +52,7 @@
     pkgs.discord
     pkgs.vscode-fhs
     pkgs.typst
+    pkgs.graphviz
     latex
   ];
 
