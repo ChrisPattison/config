@@ -53,6 +53,7 @@
     pkgs.vscode-fhs
     pkgs.typst
     pkgs.graphviz
+    pkgs.dot2tex
     latex
   ];
 
