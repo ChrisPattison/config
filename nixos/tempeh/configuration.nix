@@ -148,7 +148,6 @@
   services.printing.drivers = [ pkgs.brlaser ];
 
   # Enable sound.
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
