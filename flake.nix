@@ -2,8 +2,10 @@
   description = "NixOS configuration";
 
   inputs = {
-    # Nixpkgs
+    # Nixpkgs release
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+
+    # Nixpkgs unstable
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Home manager
@@ -13,12 +15,15 @@
     # Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Zed
+    zed-editor.url = "github:zed-industries/zed";
+    zed-editor.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, emacs-overlay, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, emacs-overlay, zed-editor, ... }:
     let
       pkgs = (system: import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
-      pkgs-unstable = (system: import nixpkgs-unstable { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
     in {
       nixosConfigurations = {
         tempeh = nixpkgs.lib.nixosSystem {
@@ -31,7 +36,11 @@
       
       homeConfigurations = {
         chris = home-manager.lib.homeManagerConfiguration {
-          pkgs = (pkgs-unstable "x86_64-linux");
+          pkgs = (pkgs "x86_64-linux");
+          extraSpecialArgs = {
+            inherit zed-editor;
+            inherit nixpkgs-unstable;
+          };
           modules = [
             ./homes/home.nix
           ];

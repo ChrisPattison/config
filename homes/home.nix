@@ -1,6 +1,5 @@
-{ pkgs, lib, ...}:
+{ config, pkgs, lib, ...}:
 {
-
   imports = [
     ../modules/top.nix
   ];
@@ -69,6 +68,8 @@
   
   my.emacs.enable = true;
   
+  my.zed-editor.enable = true;
+  
   dconf.settings = {
     "/org/gnome/desktop/interface" = {
       # scaling-factor = 2;
@@ -83,12 +84,12 @@
     enable = true;
   };
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-    ];
-  };
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [
+  #     fcitx5-mozc
+  #   ];
+  # };
 
   programs.zsh = {
     enable = true;
