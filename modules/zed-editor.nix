@@ -32,8 +32,7 @@ in {
         };
         base_keymap = "Emacs";
       };
-      userKeymaps = {
-      };
+      userKeymaps = import ./zed-editor-keymap.nix;
     };
 
     home.packages = [ pkgs.tinymist ];
