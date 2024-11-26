@@ -26,6 +26,16 @@ in {
         "nix"
         "latex"
       ];
+      userSettings = {
+        features = {
+          copilot = false;
+        };
+        base_keymap = "Emacs";
+      };
+      userKeymaps = {
+      };
     };
+
+    home.packages = [ pkgs.tinymist ];
   };
 }
