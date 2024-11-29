@@ -36,7 +36,7 @@
 
   my.emacs = {
     enable = true;
-    package = pkgs.emacsMacport;
+    package = pkgs.emacs29-macport;
   };
 
   my.git.enable = true;

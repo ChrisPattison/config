@@ -51,6 +51,7 @@
     pkgs.discord
     pkgs.vscode-fhs
     pkgs.typst
+    pkgs.tinymist
     pkgs.graphviz
     pkgs.dot2tex
     latex
