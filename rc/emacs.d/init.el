@@ -14,6 +14,9 @@
 (use-package material-theme
   :ensure t)
 
+(setq-default indent-tabs-mode nil
+              tab-width        2)
+
 
 (load-theme 'material-light t)
 
