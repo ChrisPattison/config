@@ -16,6 +16,9 @@
 
 (add-hook 'typst-ts-mode-hook 'eglot-ensure)
 
+(setq-default indent-tabs-mode nil
+              tab-width        2)
+
 
 
 ;; ======== Lean ========

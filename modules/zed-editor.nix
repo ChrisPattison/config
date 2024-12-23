@@ -34,7 +34,5 @@ in {
       };
       userKeymaps = import ./zed-editor-keymap.nix;
     };
-
-    home.packages = [ pkgs.tinymist ];
   };
 }

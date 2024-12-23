@@ -10,7 +10,19 @@
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
   
-  home.packages = [ pkgs.home-manager pkgs.htop pkgs.texlive.combined.scheme-full pkgs.ghostscript pkgs.lean4 pkgs.typst pkgs.typst-lsp pkgs.cargo pkgs.rustc pkgs.inkscape pkgs.lmodern pkgs.lmmath];
+  home.packages = [
+    pkgs.home-manager
+    pkgs.htop
+    pkgs.texlive.combined.scheme-full
+    pkgs.ghostscript
+    pkgs.typst
+    pkgs.tinymist
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.inkscape
+    pkgs.lmodern
+    pkgs.lmmath
+  ];
 
   nix.package = pkgs.nix;
   nix.settings = {
@@ -24,7 +36,7 @@
 
   my.emacs = {
     enable = true;
-    package = pkgs.emacsMacport;
+    package = pkgs.emacs29-macport;
   };
 
   my.git.enable = true;
