@@ -22,7 +22,7 @@ in {
   config = mkIf cfg.enable {
       programs.emacs = let
         emacs = pkgs.emacsWithPackagesFromUsePackage {
-          config = ../rc/emacs.d/init.el;
+          config = ../rc/emacs.d/default.el;
           defaultInitFile = true;
           package = cfg.package;
         };
@@ -31,6 +31,10 @@ in {
         package = emacs;
       };
 
+      home.file.".emacs.d/init.el" = {
+        source = ../rc/emacs.d/init.el;
+      };
+      
       home.file.".emacs.d/snippets" = {
         source = ../rc/emacs.d/snippets;
         recursive = true;

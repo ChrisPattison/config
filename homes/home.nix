@@ -53,6 +53,7 @@
     pkgs.typst
     pkgs.graphviz
     pkgs.dot2tex
+    pkgs.lean4
     latex
   ];
 

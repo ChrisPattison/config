@@ -173,8 +173,9 @@
     "steam-run"
     "steam-original"
     "steam-runtime"
+    "steam-unwrapped"
   ]);
-  programs.steam.enable = false;
+  programs.steam.enable = true;
 
   users.users.chris = {
     isNormalUser = true;
