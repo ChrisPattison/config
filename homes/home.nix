@@ -70,8 +70,6 @@
   
   my.emacs.enable = true;
   
-  my.zed-editor.enable = true;
-  
   dconf.settings = {
     "/org/gnome/desktop/interface" = {
       # scaling-factor = 2;

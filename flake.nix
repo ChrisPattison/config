@@ -15,13 +15,9 @@
     # Emacs overlay
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Zed
-    zed-editor.url = "github:zed-industries/zed";
-    zed-editor.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, emacs-overlay, zed-editor, ... }:
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, emacs-overlay, ... }:
     let
       pkgs = (system: import nixpkgs { inherit system; overlays = [ emacs-overlay.overlays.default ]; });
     in {
@@ -38,7 +34,6 @@
         chris = home-manager.lib.homeManagerConfiguration {
           pkgs = (pkgs "x86_64-linux");
           extraSpecialArgs = {
-            inherit zed-editor;
             inherit nixpkgs-unstable;
           };
           modules = [

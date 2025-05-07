@@ -7,6 +7,5 @@ in {
     ./git.nix
     ./emacs.nix
     ./email.nix
-    ./zed-editor.nix
   ];
 }
