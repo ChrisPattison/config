@@ -9,7 +9,7 @@
 
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
-  
+
   home.packages = [
     pkgs.home-manager
     pkgs.htop
@@ -22,6 +22,11 @@
     pkgs.inkscape
     pkgs.lmodern
     pkgs.lmmath
+    pkgs.jekyll
+    pkgs.ruby
+    pkgs.gimp
+    pkgs.julia-bin
+    pkgs.texlab
   ];
 
   nix.package = pkgs.nix;
