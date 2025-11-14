@@ -26,6 +26,8 @@
     pkgs.ruby
     pkgs.gimp
     pkgs.julia-bin
+    pkgs.nixd
+    pkgs.nil
     pkgs-unstable.texlab
   ];
 
