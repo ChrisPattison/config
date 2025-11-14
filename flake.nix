@@ -33,9 +33,6 @@
       homeConfigurations = {
         chris = home-manager.lib.homeManagerConfiguration {
           pkgs = (pkgs "x86_64-linux");
-          extraSpecialArgs = {
-            inherit nixpkgs-unstable;
-          };
           modules = [
             ./homes/home.nix
           ];
@@ -43,6 +40,9 @@
         
         mba = home-manager.lib.homeManagerConfiguration {
           pkgs = (pkgs "aarch64-darwin");
+          extraSpecialArgs = {
+            pkgs-unstable = nixpkgs-unstable.legacyPackages."aarch64-darwin";
+          };
           modules = [
             ./homes/darwin-home.nix
           ];

@@ -1,5 +1,5 @@
 
-{ pkgs, lib, ...}:
+{ pkgs, pkgs-unstable, lib, ...}:
 {
   imports = [
     ../modules/top.nix
@@ -26,7 +26,7 @@
     pkgs.ruby
     pkgs.gimp
     pkgs.julia-bin
-    pkgs.texlab
+    pkgs-unstable.texlab
   ];
 
   nix.package = pkgs.nix;
