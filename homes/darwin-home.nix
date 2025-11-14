@@ -40,7 +40,7 @@
   fonts.fontconfig.enable = true;
 
   my.emacs = {
-    enable = true;
+    enable = false;
     package = pkgs.emacs29-macport;
   };
 
