@@ -39,10 +39,5 @@
 
   fonts.fontconfig.enable = true;
 
-  my.emacs = {
-    enable = false;
-    package = pkgs.emacs29-macport;
-  };
-
   my.git.enable = true;
 }

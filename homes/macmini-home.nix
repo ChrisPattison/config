@@ -22,6 +22,7 @@
     pkgs.lmodern
     pkgs.lmmath
     pkgs.texlab
+    pkgs.skimpdf
   ];
 
   nix.package = pkgs.nix;
@@ -35,4 +36,6 @@
   fonts.fontconfig.enable = true;
 
   my.git.enable = true;
+  
+  my.obsidian.enable = true;
 }
