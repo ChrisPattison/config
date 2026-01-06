@@ -30,6 +30,7 @@
     pkgs.zotero
     # pkgs.zulip
     pkgs.skimpdf
+    pkgs.nixd
   ];
 
   nix.package = pkgs.nix;
