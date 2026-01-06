@@ -5,7 +5,7 @@
     ../modules/top.nix
   ];
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "25.11";
 
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
@@ -14,7 +14,6 @@
     pkgs.home-manager
     pkgs.htop
     pkgs.texlive.combined.scheme-full
-    pkgs.ghostscript
     pkgs.typst
     pkgs.tinymist
     pkgs.cargo
@@ -22,10 +21,6 @@
     pkgs.inkscape
     pkgs.lmodern
     pkgs.lmmath
-    pkgs.jekyll
-    pkgs.ruby
-    pkgs.gimp
-    pkgs.julia-bin
     pkgs.texlab
   ];
 
@@ -38,11 +33,6 @@
   };
 
   fonts.fontconfig.enable = true;
-
-  my.emacs = {
-    enable = false;
-    package = pkgs.emacs29-macport;
-  };
 
   my.git.enable = true;
 }
