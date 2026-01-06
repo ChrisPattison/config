@@ -37,13 +37,6 @@
           ];
         };
 
-        nadine = home-manager.lib.homeManagerConfiguration {
-          pkgs = (pkgs "x86_64-linux");
-          modules = [
-            ./homes/nadine-home.nix
-          ];
-        };
-
         mba = home-manager.lib.homeManagerConfiguration {
           pkgs = (pkgs "aarch64-darwin");
           modules = [
