@@ -10,6 +10,11 @@
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
 
+  nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "obsidian"
+  ]);
+
+  
   home.packages = [
     pkgs.home-manager
     pkgs.htop
@@ -22,6 +27,8 @@
     pkgs.lmodern
     pkgs.lmmath
     pkgs.texlab
+    pkgs.zotero
+    # pkgs.zulip
     pkgs.skimpdf
   ];
 
@@ -33,9 +40,11 @@
     ];
   };
 
+  programs.obsidian = {
+    enable = true;
+  };
+  
   fonts.fontconfig.enable = true;
 
   my.git.enable = true;
-  
-  my.obsidian.enable = true;
 }
