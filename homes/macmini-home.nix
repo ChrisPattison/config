@@ -1,20 +1,24 @@
 
-{ pkgs, pkgs-unstable, lib, ...}:
+{ pkgs, lib, ...}:
 {
   imports = [
     ../modules/top.nix
   ];
 
-  home.stateVersion = "22.11";
+  home.stateVersion = "25.11";
 
   home.username = "chris";
   home.homeDirectory = "/Users/chris";
 
+  nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
+    "obsidian"
+  ]);
+
+  
   home.packages = [
     pkgs.home-manager
     pkgs.htop
     pkgs.texlive.combined.scheme-full
-    pkgs.ghostscript
     pkgs.typst
     pkgs.tinymist
     pkgs.cargo
@@ -22,13 +26,11 @@
     pkgs.inkscape
     pkgs.lmodern
     pkgs.lmmath
-    pkgs.jekyll
-    pkgs.ruby
-    pkgs.gimp
-    pkgs.julia-bin
+    pkgs.texlab
+    pkgs.zotero
+    # pkgs.zulip
+    pkgs.skimpdf
     pkgs.nixd
-    pkgs.nil
-    pkgs-unstable.texlab
   ];
 
   nix.package = pkgs.nix;
@@ -39,6 +41,10 @@
     ];
   };
 
+  programs.obsidian = {
+    enable = true;
+  };
+  
   fonts.fontconfig.enable = true;
 
   my.git.enable = true;

@@ -13,16 +13,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.git = {
+    programs.git.settings = {
       enable = true;
-      userName = "Chris Pattison";
-      userEmail = "chpattison@gmail.com";
-      extraConfig = {
-        pull.rebase = false;
-        rebase.autoSquash = true;
-        core.editor = "nano";
-        init.defaultBranch = "main";
-      };
+      user.name = "Chris Pattison";
+      user.email = "chpattison@gmail.com";
+      pull.rebase = false;
+      rebase.autoSquash = true;
+      core.editor = "nano";
+      init.defaultBranch = "main";
     };
   };
 }

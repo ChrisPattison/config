@@ -68,8 +68,6 @@
   my.email.enable = true;
   my.git.enable = true;
   
-  my.emacs.enable = true;
-  
   dconf.settings = {
     "/org/gnome/desktop/interface" = {
       # scaling-factor = 2;
@@ -99,4 +97,3 @@
     };
   };
 }
-
