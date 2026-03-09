@@ -1,6 +1,13 @@
 
 { pkgs, lib, ...}:
-{
+let
+  python = pkgs.python3.withPackages (ps: with ps; [
+    galois
+    pytest
+    numpy
+    scipy
+  ]);
+in {
   imports = [
     ../modules/top.nix
   ];
@@ -12,13 +19,14 @@
 
   nixpkgs.config.allowUnfreePredicate = (pkg: builtins.elem (lib.getName pkg) [
     "obsidian"
+    "zoom"
   ]);
 
-  
   home.packages = [
     pkgs.home-manager
     pkgs.htop
     pkgs.texlive.combined.scheme-full
+    pkgs.texlab
     pkgs.typst
     pkgs.tinymist
     pkgs.cargo
@@ -31,6 +39,10 @@
     # pkgs.zulip
     pkgs.skimpdf
     pkgs.nixd
+    pkgs.nil
+    pkgs.julia-bin
+    pkgs.zoom-us
+    python
   ];
 
   nix.package = pkgs.nix;
