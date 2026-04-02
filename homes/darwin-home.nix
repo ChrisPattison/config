@@ -14,7 +14,6 @@
     pkgs.home-manager
     pkgs.htop
     pkgs.texlive.combined.scheme-full
-    pkgs.ghostscript
     pkgs.typst
     pkgs.tinymist
     pkgs.cargo
@@ -29,6 +28,7 @@
     pkgs.nixd
     pkgs.nil
     pkgs-unstable.texlab
+    pkgs.source-sans
   ];
 
   nix.package = pkgs.nix;
