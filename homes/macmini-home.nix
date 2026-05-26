@@ -55,7 +55,10 @@ in {
 
   programs.zsh = {
     enable = true;
-    initContent = lib.mkOrder 1000 "source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh";
+    initContent = lib.mkOrder 1000 ''
+      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      [ -r "/etc/zshrc_$TERM_PROGRAM" ] && . "/etc/zshrc_$TERM_PROGRAM"
+    '';
   };
 
   programs.obsidian = {
