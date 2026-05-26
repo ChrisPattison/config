@@ -53,6 +53,11 @@ in {
     ];
   };
 
+  programs.zsh = {
+    enable = true;
+    initContent = lib.mkOrder 1000 "source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh";
+  };
+
   programs.obsidian = {
     enable = true;
   };
