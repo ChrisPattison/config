@@ -57,27 +57,12 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
-  # Enable the X11 windowing system.
-  services.xserver = {
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
     enable = true;
-    dpi = 160;
-    upscaleDefaultCursor = true;
-
-    displayManager.gdm = {
-      autoSuspend = false;
-      enable = false;
-      wayland = true;
-    };
-    
-    desktopManager.gnome.enable = false;
-    desktopManager.plasma5 = {
-      enable = true;
-      useQtScaling = true;
-    };
+    # To use Wayland (Experimental for SDDM)
+    wayland.enable = true;
   };
-  
-  
-  
   
   # Fix auto suspend
   # https://github.com/NixOS/nixpkgs/issues/100390
@@ -134,11 +119,6 @@
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.variant = "colemak";
   services.xserver.xkb.options = "ctrl:nocaps"; # map caps to ctrl.
-
-  # Gnome config
-  services.gnome.tracker-miners.enable = false;
-  services.gnome.tracker.enable = false;
-  services.gnome.games.enable = false;
 
   # Enable dconf
   programs.dconf.enable = true;
