@@ -40,7 +40,7 @@
             pkgs-unstable = nixpkgs-unstable.legacyPackages."aarch64-darwin";
           };
           modules = [
-            ./homes/darwin-home.nix
+            ./homes/mba-home.nix
           ];
         };
 
